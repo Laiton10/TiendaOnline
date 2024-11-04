@@ -8,7 +8,7 @@
 <body>
     <header><h1>Registro del cliente</h1></header>
     <div class="container">
-    <form action="../Controlador/ControladorPeticionesCliente.php" method="post">
+    <form action="../Controlador/PeticionesClienteRegistro.php" method="post">
             <label for="id"><input type="number" name="id" id="id" placeholder="ID"></label><br>
             <span style="color: red"><?php echo $_REQUEST["avisoID"] ?></span><br><br>
 

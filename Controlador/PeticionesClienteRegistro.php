@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $cliente = new DTOCliente($id,$nombre,$apellido,$nickname,$password,$telefono,$domicilio);
 
         $clienteDAO->agregarCliente($cliente);
-        header("location:../Vista/iniciarSesion.html");
+        header("location:../Vista/iniciarSesion.php");
     }
 }
 ?>

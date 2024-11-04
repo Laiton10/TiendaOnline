@@ -21,5 +21,23 @@ class DAOCliente {
 
         return $stmt->execute();
     }
+
+    public function buscarNicknameContrasena($nickname, $password){
+        $stmt = $this->conn->prepare("SELECT nickname, password FROM Cliente WHERE nickname=:nickname");
+        $stmt->bindParam(":nickname", $nickname);
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        if($result){ /* si es true, es que se ha encontrado el nickname del where, si es false, no*/
+            if($password == $result['password']){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
 }
 ?>
