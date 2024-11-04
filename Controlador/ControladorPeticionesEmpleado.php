@@ -13,6 +13,7 @@ if(!isset($_SESSION["nombre"])){
 </head>
 <body>
 <header>Peticiones</header>
+<p> hola    </p>
 <?php
 echo $_SESSION["nombre"];
 echo "<a href='../Modelo/DTOEmpleado.php'>Ir a la otra</a>"
