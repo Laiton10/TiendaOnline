@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION["nombre"])){
+   $_SESSION["nombre"] = "ROLDAN";
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,6 +13,10 @@
 </head>
 <body>
 <header>Peticiones</header>
+<?php
+echo $_SESSION["nombre"];
+echo "<a href='../Modelo/DTOEmpleado.php'>Ir a la otra</a>"
+?>
 </body>
 </html>
 
