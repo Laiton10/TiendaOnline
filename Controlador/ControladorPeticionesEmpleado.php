@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-<?php
-=======
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,4 +12,4 @@
 <p>ROldan es super gay</p>xº
 </body>
 </html>
->>>>>>> c085249b16d4adfb6070f040f76789a349287d36
+
