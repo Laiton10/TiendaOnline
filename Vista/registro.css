@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height: 650px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5); /* el 10 px es lo difusa que esta la sombra, y el 3px lo que se expande desde el borde hacia fuera*/
+    font-family: 'Roboto', sans-serif;
+}
+
+.container input{
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+}
+.container input::placeholder{
+    color: #e3ffff;
+}
+
+.container input:focus{
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+.container button{
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    background-color: #2ECC71;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0  0 5px 3px rgba(0, 0, 0, 0.5);
+
+}
+
+.container button:hover{
+    transform: scale(1.2);
+}
