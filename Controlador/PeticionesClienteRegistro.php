@@ -1,6 +1,7 @@
 <?php
 require '../Modelo/DAOCliente.php';
 
+
 $clienteDAO = new DAOCliente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -58,6 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         $cliente = new DTOCliente($id,$nombre,$apellido,$nickname,$password,$telefono,$domicilio);
+
 
         $clienteDAO->agregarCliente($cliente);
         header("location:../Vista/iniciarSesion.php");

@@ -1,3 +1,12 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require_once '../Modelo/DTOCliente.php';
+require "../Controlador/PeticionesClienteInicio.php";
+session_start();
+print $_SESSION["cliente"]->mostrarInfo()."<br>";
+?>
 <!doctype html>
 <html lang="en">
 <head>

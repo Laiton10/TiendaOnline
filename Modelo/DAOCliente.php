@@ -22,22 +22,31 @@ class DAOCliente {
         return $stmt->execute();
     }
 
-    public function buscarNicknameContrasena($nickname, $password){
-        $stmt = $this->conn->prepare("SELECT nickname, password FROM Cliente WHERE nickname=:nickname");
+    public function buscarNicknameContrasena($nickname, $password) {
+        $stmt = $this->conn->prepare("SELECT id, nombre, apellido, nickname, password, telefono, domicilio FROM Cliente WHERE nickname=:nickname");
         $stmt->bindParam(":nickname", $nickname);
         $stmt->execute();
 
         $result = $stmt->fetch();
 
-        if($result){ /* si es true, es que se ha encontrado el nickname del where, si es false, no*/
-            if($password == $result['password']){
-                return true;
+        if ($result) {
+            if ($password === $result['password']) {
+                return new DTOCliente(
+                    $result['id'],
+                    $result['nombre'],
+                    $result['apellido'],
+                    $result['nickname'],
+                    $result['password'],
+                    $result['telefono'],
+                    $result['domicilio']
+                );
             }else{
                 return false;
             }
         }
         return false;
     }
+
 
 }
 ?>

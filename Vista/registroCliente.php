@@ -29,8 +29,12 @@
 
             <label for="domicilio"><input type="text" name="domicilio" id="domicilio" placeholder="Domicilio"></label><br><br>
 
-            <button type="submit">Enviar datos</button><br><br>
+        <div class="boton">
+            <button type="submit">Enviar datos</button>
             <button type="reset">Borrar datos</button>
+        </div>
+
+            <p>Si ya está registrado,<a href="iniciarSesion.php"> inicie sesión</a></p>
     </form>
     </div>
 </body>

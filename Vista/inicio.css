@@ -29,8 +29,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 650px;
-    height: 650px;
+    width: 500px;
+    height: 300px;
     border-radius: 10%;
     box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5); /* el 10 px es lo difusa que esta la sombra, y el 3px lo que se expande desde el borde hacia fuera*/
     font-family: 'Roboto', sans-serif;
@@ -43,7 +43,7 @@ body {
     background-color: rgba(255, 255, 255, 0.25);
     color: #ffffff;
     font-size: 16px;
-    padding: 6px;
+    padding: 10px;
 }
 .container input::placeholder{
     color: #e3ffff;
@@ -54,16 +54,8 @@ body {
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
 }
 
-.boton{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
-    gap: 20px;
-}
-
 .container button{
-    width: 150px;
+    width: 100%;
     border-radius: 30px;
     border: none;
     background-color: #2ECC71;
@@ -71,21 +63,21 @@ body {
     font-size: 16px;
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
     transition: transform 0.3s ease;
     box-shadow: 0  0 5px 3px rgba(0, 0, 0, 0.5);
 
 }
-
 .container button:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .container p{
     width: 100%;
     color: white;
     margin-top: 10px;
+    padding: 10px;
 }
+
 .container p a{
     text-decoration: none;
 }

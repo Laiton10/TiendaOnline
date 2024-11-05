@@ -91,5 +91,8 @@ class DTOCliente {
         $this->domicilio = $domicilio;
     }
 
+    public function __mostrarInfo() {
+        return "Usuario: " . $this->nickname . ", Contraseña: " . $this->password;
+    }
 }
 ?>
