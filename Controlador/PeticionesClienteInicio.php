@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($clienteUsuario == false){
         $aviso = "El usuario o la contrasena son incorrectos";
         header("location:../Vista/iniciarSesion.php?aviso=$aviso");
-        exit();
     }else{
         $_SESSION['cliente'] = $clienteUsuario;
         header("location:../Vista/menu.php");

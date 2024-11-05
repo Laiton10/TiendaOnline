@@ -11,7 +11,13 @@
         <form action="../Controlador/PeticionesClienteInicio.php" method="post">
             <input type="text" name="nickname" placeholder="Nickname"><br><br>
             <input type="text" name="password" placeholder="Password"><br><br>
-            <p style="color: red"><?php echo $_REQUEST["aviso"]?></p>
+            <p style="color: red">
+                <?php
+                if(isset($_REQUEST["aviso"])){
+                    echo $_REQUEST["aviso"];
+                }
+                ?>
+            </p>
 
             <button type="submit">Iniciar Sesión</button><br>
 
