@@ -92,7 +92,8 @@ class DTOCliente {
     }
 
     public function __mostrarInfo() {
-        return "Usuario: " . $this->nickname;
+        return "Usuario: " . $this->nickname .
+            "<br>" ."Id Cliente: " .$this->id;
     }
 }
 ?>

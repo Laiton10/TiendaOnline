@@ -12,7 +12,21 @@ require "../Controlador/PeticionesClienteInicio.php";
 $empleado = $_SESSION["cliente"];
 print($empleado->__mostrarInfo());
 ?>
+    <header><h1>Menú</h1></header>
+    <ul>
+        <p><b>Menú carrito:</b></p>
+        <li><a href="">Añadir producto al carrito</a></li>
+        <li><a href="">Eliminar producto del carrito</a></li>
+        <li><a href="">Mostrar carrito</a></li>
+        <li><a href="">Eliminar todos los productos</a></li>
+    </ul>
+    <ul>
+        <p><b>Menu BD:</b></p>
+        <li><a href="">Añadir producto</a></li>
+        <li><a href="">Eliminar prodcuto</a></li>
+        <li><a href="">Mostrar productos</a></li>
+        <li><a href="">Editar producto</a></li>
+    </ul>
 
-    <header><h1>menu</h1></header>
 </body>
 </html>
