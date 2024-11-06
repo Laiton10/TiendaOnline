@@ -15,6 +15,16 @@ if ($boton == "insert") {
     $nuevoProducto= new DTOProducto($id,$nombre,$descripcion,$precio,$clienteid);
 
     $productoDAO->insertProducto($nuevoProducto);
+
+}else if($boton == "delete"){
+    $id = $_POST["id"];
+    $productoDAO->deleteProducto($id);
+}else if($boton == "actualizar"){
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $descripcion = $_POST["descripcion"];
+    $precio = $_POST["precio"];
+    $productoDAO->editarProducto($id,$nombre,$descripcion,$precio);
 }
 ?>
 
