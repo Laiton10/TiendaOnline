@@ -1,21 +1,24 @@
 <?php
 require "../Controlador/PeticionesClienteInicio.php";
-$cliente= $_SESSION['cliente'];
+$cliente = $_SESSION['cliente'];
 print($cliente->__mostrarInfo());
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eliminar</title>
+    <title>Eliminar producto</title>
 </head>
 <body>
-    <header><h1>Eliminar producto</h1></header>
-        <form action="../Controlador/PeticionesProducto.php" method="POST">
-            <p>Elimina el producto por su id: </p><br>
-            <label for="id"><input id="id" name="id" placeholder="ID"></label><br><br>
-            <button type="submit" value="delete" name="accion">Eliminar</button>
+<header><h1>Eliminar producto</h1></header>
+<form action="../Controlador/PeticionesProducto.php" method="POST">
+    <p>Elimina el producto por su ID: </p>
+    <label for="id">ID: <input id="id" name="id" placeholder="ID"></label>
+    <?php if(isset($_REQUEST["avisoID"])) echo "<p style='color:red;'>".$_REQUEST["avisoID"]."</p>"; ?>
+    <br><br>
+
+    <button type="submit" value="delete" name="accion">Eliminar</button>
 </form>
 </body>
 </html>
+
