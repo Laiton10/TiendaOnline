@@ -20,16 +20,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
      }else{
          $nombre = $_POST["nombre"];
      }
-     if(empty($_POST["descripcion"])){
-         $avisoDescripcion= "No se ha introducido la descripcion";
-     }else{
-         $descripcion = $_POST["descripcion"];
-     }
-       if(empty($_POST["precio"])){
-           $avisoPrecio= "No se ha introducido el precio";
-       }else{
-           $precio = $_POST["precio"];
-       }
+        if(empty($_POST["descripcion"])) {
+            $avisoDescripcion = "No se ha introducido la descripcion";
+        } elseif(!preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["descripcion"])) {
+            $avisoDescripcion = "La descripcion solo puede contener letras, numeros y espacios";
+        } else {
+            $descripcion = $_POST["descripcion"];
+        }
+        if(empty($_POST["precio"])){
+            $avisoPrecio= "No se ha introducido el precio";
+        }else if($_POST["precio"] < 0){
+            $avisoPrecio= "El precio debe ser positivo";
+        }
+        else{
+            $precio = $_POST["precio"];
+        }
         $clienteid = null;
 
        if(!empty($avisoID) || !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
@@ -71,14 +76,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         else{
             $nombre = $_POST["nombre"];
         }
-        if(empty($_POST["descripcion"])){
-            $avisoDescripcion= "No se ha introducido la descripcion";
-        }else{
+        if(empty($_POST["descripcion"])) {
+            $avisoDescripcion = "No se ha introducido la descripcion";
+        } elseif(!preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["descripcion"])) {
+            $avisoDescripcion = "La descripcion solo puede contener letras, numeros y espacios";
+        } else {
             $descripcion = $_POST["descripcion"];
         }
         if(empty($_POST["precio"])){
             $avisoPrecio= "No se ha introducido el precio";
-        }else{
+        }else if($_POST["precio"] < 0){
+            $avisoPrecio= "El precio debe ser positivo";
+        }
+        else{
             $precio = $_POST["precio"];
         }
 
