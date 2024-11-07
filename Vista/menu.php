@@ -22,7 +22,7 @@ print($empleado->__mostrarInfo());
     </ul>
     <ul>
         <p><b>Menu BD:</b></p>
-        <li><a href="AñadirProductoBD.php">Añadir producto</a></li>
+        <li><a href="AnadirProductoBD.php">Añadir producto</a></li>
         <li><a href="EliminarProductoBD.php">Eliminar producto</a></li>
         <li><a href="MostrarProductosBD.php">Mostrar productos</a></li>
         <li><a href="ActualizarProductoBD.php">Editar producto</a></li>

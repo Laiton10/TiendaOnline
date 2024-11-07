@@ -33,11 +33,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $clienteid = null;
 
        if(!empty($avisoID) || !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
-           header("Location:../Vista/AñadirProductoBD.php?avisoID=$avisoID&avisoNombre=$nombre&avisoDescripcion=$descripcion&avisoPrecio=$precio");
+           header("Location:../Vista/AnadirProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
        }
 
         $nuevoProducto = new DTOProducto($id, $nombre, $descripcion, $precio, $clienteid);
         $productoDAO->insertProducto($nuevoProducto);
+        header("Location:../Vista/menu.php");
 
 
     } else if ($boton == "delete") {
@@ -48,10 +49,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if(!empty($avisoID)){
-            header("Location:../Vista/EliminarProductoBD.php?id=$avisoID");
+            header("Location:../Vista/EliminarProductoBD.php?avisoID=$avisoID");
+            exit();
         }
 
         $productoDAO->deleteProducto($id);
+        header("Location:../Vista/menu.php");
+        exit();
+
     } else if ($boton == "actualizar") {
         if(empty($_POST["id"])){
             $avisoID= "No se ha introducido el id";
@@ -78,11 +83,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if(!empty($avisoID)|| !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
-            header("Location:../Vista/ActualizarProductoBD.php?avisoId=$avisoID&avisoNombre=$nombre&avisoDescripcion=$descripcion&avisoPrecio=$precio");
+            header("Location:../Vista/ActualizarProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
+            exit();
         }
         $productoDAO->editarProducto($id, $nombre, $descripcion, $precio);
+
+        header("Location:../Vista/menu.php");
+        exit();
     }
-    header("Location:../Vista/menu.php");
+
 }
 ?>
 
