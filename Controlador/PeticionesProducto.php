@@ -8,18 +8,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $boton = $_POST["accion"];
 
     if ($boton == "insert") {
+
         if(empty($_POST["id"])){
             $avisoID= "No se ha introducido el id";
         }else{
             $id = $_POST["id"];
         }
-     if(empty($_POST["nombre"])){
-         $avisoNombre= "No se ha introducido el nombre";
-     }else if(!ctype_alnum($_POST["nombre"])){
-         $avisoNombre= "El nombre solo acepta letras y numeros";
-     }else{
-         $nombre = $_POST["nombre"];
-     }
+
+         if(empty($_POST["nombre"])){
+             $avisoNombre= "No se ha introducido el nombre";
+         }else if(!ctype_alnum($_POST["nombre"])){
+            $avisoNombre= "El nombre solo acepta letras y numeros";
+         }else{
+             $nombre = $_POST["nombre"];
+         }
+
         if(empty($_POST["descripcion"])) {
             $avisoDescripcion = "No se ha introducido la descripcion";
         } elseif(!preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["descripcion"])) {
@@ -27,6 +30,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $descripcion = $_POST["descripcion"];
         }
+
+
         if(empty($_POST["precio"])){
             $avisoPrecio= "No se ha introducido el precio";
         }else if($_POST["precio"] < 0){
@@ -35,13 +40,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         else{
             $precio = $_POST["precio"];
         }
-        $clienteid = null;
+
+        if($_POST["precio"] < 10){
+            $nuevaDescripcion = $_POST["descripcion"] . " || 'Producto de oferta'";
+        }elseif ($_POST["precio"] > 200 ) {
+            $nuevaDescripcion = $_POST["descripcion"] . " || 'Producto de calidad'";
+        }else{
+            $nuevaDescripcion = $_POST["descripcion"];
+        }
+
+            $clienteid = null;
 
        if(!empty($avisoID) || !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
            header("Location:../Vista/AnadirProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
        }
 
-        $nuevoProducto = new DTOProducto($id, $nombre, $descripcion, $precio, $clienteid);
+        $nuevoProducto = new DTOProducto($id, $nombre, $nuevaDescripcion, $precio, $clienteid);
         $productoDAO->insertProducto($nuevoProducto);
         header("Location:../Vista/menu.php");
 
