@@ -16,9 +16,7 @@ print($empleado->__mostrarInfo());
     <ul>
         <p><b>Menú carrito:</b></p>
         <li><a href="">Añadir producto al carrito</a></li>
-        <li><a href="">Eliminar producto del carrito</a></li>
         <li><a href="">Mostrar carrito</a></li>
-        <li><a href="">Eliminar todos los productos</a></li>
     </ul>
     <ul>
         <p><b>Menu BD:</b></p>
