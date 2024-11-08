@@ -65,5 +65,17 @@ class DAOProducto{
         return $stmt->execute();
     }
 
+    public function buscarNombre($nombre){
+        $stmt= $this->conn->prepare("SELECT nombre FROM Producto WHERE nombre LIKE :nombre");
+        $stmt->bindParam(":nombre", $nombre);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
 ?>

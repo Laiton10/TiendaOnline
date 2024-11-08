@@ -15,13 +15,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST["id"];
         }
 
-         if(empty($_POST["nombre"])){
-             $avisoNombre= "No se ha introducido el nombre";
-         }else if(!ctype_alnum($_POST["nombre"])){
+        if(empty($_POST["nombre"])){
+            $avisoNombre= "No se ha introducido el nombre";
+        }else if(!ctype_alnum($_POST["nombre"])){
             $avisoNombre= "El nombre solo acepta letras y numeros";
-         }else{
-             $nombre = $_POST["nombre"];
-         }
+        }else if($productoDAO->buscarNombre($_POST["nombre"])){
+            $avisoNombre= "El producto ya se encuentra en la base de datos";
+        }
+        else{
+            $nombre = $_POST["nombre"];
+        }
 
         if(empty($_POST["descripcion"])) {
             $avisoDescripcion = "No se ha introducido la descripcion";
@@ -85,7 +88,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(empty($_POST["nombre"])){
             $avisoNombre= "No se ha introducido el nombre";
         }else if(!ctype_alnum($_POST["nombre"])){
-            $avisoNombre= "El nombre solo acepta letras";
+            $avisoNombre= "El nombre solo acepta letras y numeros";
+        }else if($productoDAO->buscarNombre($_POST["nombre"])){
+            $avisoNombre= "El producto ya se encuentra en la base de datos";
         }
         else{
             $nombre = $_POST["nombre"];
