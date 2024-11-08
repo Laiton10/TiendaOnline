@@ -14,10 +14,9 @@ print($empleado->__mostrarInfo());
 ?>
     <header><h1>Menú</h1></header>
     <ul>
-        <p><b>Menú de Gestión de Carrito:</b></p>
-        <li><a href="Carrito.php">Mostrar carrito</a></li>
-        <li><a href="AnadirProductoAlCarrito.php">Añadir producto al carrito</a></li>
-
+        <p><b>Menú carrito:</b></p>
+        <li><a href="">Añadir producto al carrito</a></li>
+        <li><a href="">Mostrar carrito</a></li>
     </ul>
     <ul>
         <p><b>Menu BD:</b></p>
