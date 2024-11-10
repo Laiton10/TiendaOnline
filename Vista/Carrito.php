@@ -1,5 +1,14 @@
 <?php
-require '../Controlador/ControlCarrito.php';
+
+require_once "../Controlador/ControlCarrito.php";
+
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$empleado = $_SESSION["cliente"];
+print($empleado->__mostrarInfo());
 $carrito = new ControlCarrito();
 ?>
 

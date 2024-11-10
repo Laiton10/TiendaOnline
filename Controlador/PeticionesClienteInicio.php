@@ -2,7 +2,11 @@
 
 require '../Modelo/DAOCliente.php';
 require_once '../Modelo/DTOCliente.php';
+
 session_start();
+
+var_dump($_SESSION);
+
 $cliente = new DAOCliente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
