@@ -3,7 +3,8 @@ require_once "../Modelo/DB.php";
 require_once "../Modelo/DAOProducto.php";
 require_once "../Modelo/DTOProducto.php";
 $productoDAO = new DAOProducto();
-
+// puede fallar los avisos ya que no estan iniciados
+// Si los inicias los tienes que inicar a NULL
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $boton = $_POST["accion"];
 

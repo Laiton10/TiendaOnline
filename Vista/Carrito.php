@@ -1,15 +1,18 @@
 <?php
 
 require_once "../Controlador/ControlCarrito.php";
+require_once "../Modelo/DTOCliente.php";
 
 session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$empleado = $_SESSION["cliente"];
-print($empleado->__mostrarInfo());
-$carrito = new ControlCarrito();
+$datosSerializados = serialize($_SESSION["cliente"]);
+$obj = unserialize($datosSerializados);
+echo "Bienvenido " . $obj->getNombre() . "<br>";
+
+
 ?>
 
 <!doctype html>
@@ -22,7 +25,7 @@ $carrito = new ControlCarrito();
 <body>
     <header><h2>Carrito</h2></header>
     <?php
-        $carrito->mostrarCarrito();
+        mostrarCarrito();
     ?>
 
     <p><a href="">Añadir producto al carrito</a></p>

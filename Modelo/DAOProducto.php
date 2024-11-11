@@ -77,5 +77,20 @@ class DAOProducto{
         }
     }
 
+    public function buscarPorId($id){
+        $stmt= $this->conn->prepare("SELECT id, nombre, descripcion, precio, cliente_id FROM Producto WHERE id =:id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if($result){
+           foreach($result as $fila){
+               return new DTOProducto($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
+           }
+        }else{
+            return false;
+        }
+        return false;
+    }
+
 }
 ?>

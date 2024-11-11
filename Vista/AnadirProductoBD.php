@@ -1,7 +1,8 @@
 <?php
-require "../Controlador/PeticionesClienteInicio.php";
-$cliente = $_SESSION['cliente'];
-print($cliente->__mostrarInfo());
+session_start();
+print_r( $_SESSION);
+//$cliente = $_SESSION['cliente'];
+//print($cliente->__mostrarInfo());
 ?>
 <!DOCTYPE html>
 <html lang="en">

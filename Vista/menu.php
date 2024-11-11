@@ -3,8 +3,8 @@ require "../Controlador/PeticionesClienteInicio.php";
 
 session_start();
 
-$empleado = $_SESSION["cliente"];
-print($empleado->__mostrarInfo());
+
+
 ?>
     <html>
     <body>

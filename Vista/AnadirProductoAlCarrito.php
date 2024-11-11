@@ -1,9 +1,9 @@
 <?php
-require_once "../Controlador/ControlCarrito.php";
-session_start();
+//require_once "../Controlador/ControlCarrito.php";
+//session_start();
 
-$empleado = $_SESSION["cliente"];
-print($empleado->__mostrarInfo());
+//$empleado = $_SESSION["cliente"];
+//print($empleado->__mostrarInfo());
 ?>
 <!doctype html>
 <html lang="en">
