@@ -1,10 +1,5 @@
 <?php
 require "../Controlador/PeticionesClienteInicio.php";
-
-
-
-
-
 ?>
     <html>
     <body>
@@ -21,6 +16,10 @@ require "../Controlador/PeticionesClienteInicio.php";
         <li><a href="MostrarProductosBD.php">Mostrar productos</a></li>
         <li><a href="ActualizarProductoBD.php">Editar producto</a></li>
     </ul>
+
+    <form action="../Controlador/PeticionesClienteCierre.php" method="post">
+        <button type="submit" value="cerrar" name="cerrar">Cerrar Sesión</button>
+    </form>
 
 </body>
 </html>

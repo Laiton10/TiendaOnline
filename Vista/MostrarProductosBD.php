@@ -25,6 +25,8 @@ foreach($producto->mostrarProductos() as $row) {
 }
 echo "</table>";
 
+echo "<p><a href='menu.php'>Regresar al menú</a></p>"
+
 ?>
 
 

@@ -37,6 +37,13 @@ class DAOProducto{
         return $result;
     }
 
+    public function mostrarProductosNulos(){
+        $stmt = $this->conn->prepare("SELECT * FROM Producto where cliente_id is NULL");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function editarProducto($id, $nombre, $descripcion, $precio){
         $stmt = $this->conn->prepare("UPDATE Producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio WHERE id = :id ");
         $stmt->bindParam(":id", $id);
@@ -67,6 +74,21 @@ class DAOProducto{
            foreach($result as $fila){
                return new DTOProducto($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
            }
+        }else{
+            return false;
+        }
+        return false;
+    }
+
+    public function buscarPorNombre($nombre){
+        $stmt= $this->conn->prepare("SELECT id, nombre, descripcion, precio, cliente_id FROM Producto WHERE nombre LIKE :nombre");
+        $stmt->bindParam(":nombre", $nombre);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if($result){
+            foreach($result as $fila){
+                return new DTOProducto($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
+            }
         }else{
             return false;
         }

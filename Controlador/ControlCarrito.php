@@ -9,15 +9,26 @@ if(!isset($_SESSION["carrito"])){
     $_SESSION["carrito"] = [];
 }
 
-    function agregarProductoCarrito($id){
-        $miDao = new DAOProducto();
-        $producto = $miDao->buscarPorId($id);
-        $carrito = $_SESSION["carrito"];
-        array_push($carrito, $producto);
-        $_SESSION["carrito"] = $carrito;
+function agregarProductoCarrito($id) {
+    $miDao = new DAOProducto();
+    $producto = $miDao->buscarPorId($id);
+    $carrito = $_SESSION["carrito"];
+
+    foreach ($carrito as $obj) {
+        if ($obj->getId() == $producto->getId()) {
+            echo "Ya está añadido al carrito";
+            return; // Si el producto ya está en el carrito, salimos de la funcion, no se ejecuta el resto del código.
+        }
     }
 
-    function mostrarCarrito(){
+    array_push($carrito, $producto);
+    echo "Producto añadido al carrito";
+
+    $_SESSION["carrito"] = $carrito;
+}
+
+
+function mostrarCarrito(){
         if(!empty($_SESSION["carrito"])){
             foreach ($_SESSION["carrito"] as $producto) {
                 echo $producto->mostrarInfo() . "<br>";
@@ -25,24 +36,23 @@ if(!isset($_SESSION["carrito"])){
             }else{
                 echo "No hay productos en el carrito";
             }
-//        $cliente = $_SESSION['cliente'];
-//        echo "<table>";
-//        foreach($_SESSION["carrito"] as $producto){
-//            print_r($producto);
-//            var_dump($producto);
-//            if($producto->getClienteId() == $cliente->getId()){
-//                echo "<tr>";
-//                echo "<td>".$producto->getNombre()."</td>";
-//                echo "<td>".$producto->getDescripcion()."</td>";
-//                echo "<td>".$producto->getPrecio()."</td>";
-//                echo "<td>".$producto->getCantidad()."</td>";
-//                echo "</tr>";
-//            }
-//        }
-//        echo "</table>";
-
-        //echo "No hay productos en el carrito";
     }
 
+function vaciarCarrito(){
+   $_SESSION["carrito"] = [];
+}
 
+function eliminarProductoCarrito($nombre){
+    $miDao = new DAOProducto();
+    $producto = $miDao->buscarPorNombre($nombre);
+    $carrito = $_SESSION["carrito"];
+
+    foreach ($carrito as $indice => $obj) {
+        if ($obj->getNombre() == $producto->getNombre()) {
+            unset($carrito[$indice]);
+        }
+    }
+
+    $_SESSION["carrito"] = $carrito;
+}
 ?>

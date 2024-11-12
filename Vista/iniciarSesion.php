@@ -15,7 +15,7 @@
                 <?php
                 if(isset($_REQUEST["aviso"])){
                     echo $_REQUEST["aviso"];
-                    //var_dump($_SESSION); // muestra el valor de la sesion para depuracion
+
                 }
                 ?>
             </p>

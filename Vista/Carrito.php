@@ -27,10 +27,13 @@ echo "Bienvenido " . $obj->getNombre() . "<br>";
         mostrarCarrito();
     ?>
 
-    <p><a href="">Añadir producto al carrito</a></p>
-    <p><a href="">Vaciar carrito</a></p>
-    <p><a href= >Eliminar producto del carrito</a></p>
+    <form action="../Controlador/PeticionesCarrito.php" method="post">
+
+    <p><a href="AnadirProductoAlCarrito.php">Añadir producto al carrito</a></p>
+    <button type="submit" name="boton" id="boton" value="eliminar">Vaciar Carrito</button>
+    <p><a href="EliminarProductoCarrito.php" >Eliminar producto del carrito</a></p>
 
     <h2><a href="menu.php">Menu principal</a></h2>
+    </form>
 </body>
 </html>

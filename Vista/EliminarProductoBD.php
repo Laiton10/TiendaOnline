@@ -17,7 +17,9 @@ print($cliente->__mostrarInfo());
     <?php if(isset($_REQUEST["avisoID"])) echo "<p style='color:red;'>".$_REQUEST["avisoID"]."</p>"; ?>
     <br><br>
 
-    <button type="submit" value="delete" name="accion">Eliminar</button>
+    <button type="submit" value="delete" name="accion">Eliminar</button><br><br>
+
+    <p><a href="menu.php">Regresar al menú</a></p>
 </form>
 </body>
 </html>

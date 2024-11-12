@@ -1,8 +1,7 @@
 <?php
-session_start();
-print_r( $_SESSION);
-//$cliente = $_SESSION['cliente'];
-//print($cliente->__mostrarInfo());
+require "../Controlador/PeticionesClienteInicio.php";
+$cliente = $_SESSION['cliente'];
+print($cliente->__mostrarInfo());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,8 @@ print_r( $_SESSION);
     <?php if(isset($_REQUEST["avisoPrecio"])) echo "<p style='color:red;'>".$_REQUEST["avisoPrecio"]."</p>"; ?>
     <br><br>
 
-    <button type="submit" value="insert" name="accion">Enviar</button>
+    <button type="submit" value="insert" name="accion">Enviar</button><br><br>
+    <p><a href="menu.php">Regresar al menú</a></p>
 </form>
 </body>
 </html>

@@ -1,9 +1,6 @@
 <?php
-//require_once "../Controlador/ControlCarrito.php";
-//session_start();
-
-//$empleado = $_SESSION["cliente"];
-//print($empleado->__mostrarInfo());
+require_once "../Modelo/DAOProducto.php";
+$producto = new DAOProducto();
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,9 +11,32 @@
 </head>
 <body>
 <form action="../Controlador/PeticionesCarrito.php" method="post">
-    <header>Añadir producto al carrito</header>
-    <label for="idProducto">ID producto<input type="number" name="idProducto" id="idProducto"></label>
-    <button type="submit" name="boton" value="anadir">Enviar</button>
+    <header><h1>Añadir producto al carrito</h1></header><br><br>
+    <?php
+    echo "<table style='border-collapse: collapse; width: 100%;'>";
+    echo "<tr style='border: 1px solid black; background-color: #f2f2f2;'>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>ID</th>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>Nombre</th>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>Descripción</th>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>Precio</th>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>Cliente ID</th>";
+    echo "<th style='border: 1px solid black; padding: 8px;'>Añadir productos</th>";
+    echo "</tr>";
+
+    foreach($producto->mostrarProductosNulos() as $producto){
+        echo "<tr style='border: 1px solid black;'>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["id"]."</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["nombre"] . "</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["descripcion"] . "</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["precio"] . "</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["cliente_id"] . "</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'>" . "<button type='submit' name='boton' value='" . $producto['id'] . "'>Añadir</button>" . "</td>";
+        echo "</tr>";
+    }
+    echo "</table><br><br>";
+    ?>
+
+    <p><a href="Carrito.php">Volver al carrito</a></p>
 </form>
 </body>
 </html>

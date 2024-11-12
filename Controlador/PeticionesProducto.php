@@ -3,8 +3,7 @@ require_once "../Modelo/DB.php";
 require_once "../Modelo/DAOProducto.php";
 require_once "../Modelo/DTOProducto.php";
 $productoDAO = new DAOProducto();
-// puede fallar los avisos ya que no estan iniciados
-// Si los inicias los tienes que inicar a NULL
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $boton = $_POST["accion"];
 
@@ -90,10 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $avisoNombre= "No se ha introducido el nombre";
         }else if(!ctype_alnum($_POST["nombre"])){
             $avisoNombre= "El nombre solo acepta letras y numeros";
-        }else if($productoDAO->buscarNombre($_POST["nombre"])){
-            $avisoNombre= "El producto ya se encuentra en la base de datos";
-        }
-        else{
+        }else{
             $nombre = $_POST["nombre"];
         }
         if(empty($_POST["descripcion"])) {

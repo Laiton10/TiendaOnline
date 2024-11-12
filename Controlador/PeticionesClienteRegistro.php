@@ -3,8 +3,7 @@ require '../Modelo/DAOCliente.php';
 
 
 $clienteDAO = new DAOCliente();
-// puede fallar los avisos ya que no estan iniciados
-// Si los inicias los tienes que inicar a NULL
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST["id"]) &&  isset($_POST["nombre"]) &&  isset($_POST["apellido"]) && isset($_POST["nickname"]) && isset($_POST["password"]) && isset($_POST["telefono"]) && isset($_POST["domicilio"])){
 

@@ -30,7 +30,9 @@ print($cliente->__mostrarInfo());
     <?php if(isset($_REQUEST["avisoPrecio"])) echo "<p style='color:red;'>".$_REQUEST["avisoPrecio"]."</p>"; ?>
     <br><br>
 
-    <button type="submit" value="actualizar" name="accion">Enviar</button>
+    <button type="submit" value="actualizar" name="accion">Enviar</button><br><br>
+
+    <p><a href="menu.php">Regresar al menú</a></p>
 </form>
 </body>
 </html>

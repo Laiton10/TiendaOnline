@@ -5,8 +5,6 @@ require_once '../Modelo/DAOCliente.php';
 
 session_start();
 
-//var_dump($_SESSION);
-
 $cliente = new DAOCliente();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -20,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         header("location:../Vista/iniciarSesion.php?aviso=$aviso");
     }else{
         $_SESSION["cliente"] = $clienteUsuario;
-        header("location:../Vista/menu.php");
+        header("location:../Vista/index.php");
     }
 
 }
