@@ -1,7 +1,7 @@
 <?php
 require "../Controlador/PeticionesClienteInicio.php";
 
-session_start();
+
 
 
 
