@@ -1,123 +1,47 @@
 <?php
-require_once "../Modelo/DB.php";
-require_once "../Modelo/DAOProducto.php";
-require_once "../Modelo/DTOProducto.php";
-$productoDAO = new DAOProducto();
+require_once "../Controlador/ControlProducto.php";
+
+$controlProducto = new ControlProducto();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $boton = $_POST["accion"];
 
     if ($boton == "insert") {
+        $result = $controlProducto->crearProducto($_POST["id"], $_POST["nombre"], $_POST["descripcion"], $_POST["precio"]);
 
-        if(empty($_POST["id"])){
-            $avisoID= "No se ha introducido el id";
-        }else{
-            $id = $_POST["id"];
+        if ($result !== true) {
+            $avisoID = $result['id'] ?? ''; //si aviso ID es nulo o no existe se asigna el valor de la derecha y si no el valor de la izquierda
+            $avisoNombre = $result['nombre'] ?? '';
+            $avisoDescripcion = $result['descripcion'] ?? '';
+            $avisoPrecio = $result['precio'] ?? '';
+            header("Location:../Vista/AnadirProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
+        }  else {
+            header("Location:../Vista/menu.php");
         }
+    } elseif ($boton == "delete") {
+        $result = $controlProducto->eliminarProducto($_POST["id"]);
 
-        if(empty($_POST["nombre"])){
-            $avisoNombre= "No se ha introducido el nombre";
-        }else if(!ctype_alnum($_POST["nombre"])){
-            $avisoNombre= "El nombre solo acepta letras y numeros";
-        }else if($productoDAO->buscarNombre($_POST["nombre"])){
-            $avisoNombre= "El producto ya se encuentra en la base de datos";
-        }
-        else{
-            $nombre = $_POST["nombre"];
-        }
-
-        if(empty($_POST["descripcion"])) {
-            $avisoDescripcion = "No se ha introducido la descripcion";
-        } elseif(!preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["descripcion"])) {
-            $avisoDescripcion = "La descripcion solo puede contener letras, numeros y espacios";
-        } else {
-            $descripcion = $_POST["descripcion"];
-        }
-
-
-        if(empty($_POST["precio"])){
-            $avisoPrecio= "No se ha introducido el precio";
-        }else if($_POST["precio"] < 0){
-            $avisoPrecio= "El precio debe ser positivo";
-        }
-        else{
-            $precio = $_POST["precio"];
-        }
-
-        if($_POST["precio"] < 10){
-            $nuevaDescripcion = $_POST["descripcion"] . " || 'Producto de oferta'";
-        }elseif ($_POST["precio"] > 200 ) {
-            $nuevaDescripcion = $_POST["descripcion"] . " || 'Producto de calidad'";
-        }else{
-            $nuevaDescripcion = $_POST["descripcion"];
-        }
-
-            $clienteid = null;
-
-       if(!empty($avisoID) || !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
-           header("Location:../Vista/AnadirProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
-       }
-
-        $nuevoProducto = new DTOProducto($id, $nombre, $nuevaDescripcion, $precio, $clienteid);
-        $productoDAO->insertProducto($nuevoProducto);
-        header("Location:../Vista/menu.php");
-
-
-    } else if ($boton == "delete") {
-        if(empty($_POST["id"])){
-            $avisoID= "No se ha introducido el id";
-        }else{
-            $id = $_POST["id"];
-        }
-
-        if(!empty($avisoID)){
+        if ($result !== true) {
+            $avisoID = $result['id'] ?? '';
             header("Location:../Vista/EliminarProductoBD.php?avisoID=$avisoID");
-            exit();
-        }
-
-        $productoDAO->deleteProducto($id);
-        header("Location:../Vista/menu.php");
-        exit();
-
-    } else if ($boton == "actualizar") {
-        if(empty($_POST["id"])){
-            $avisoID= "No se ha introducido el id";
-        }else{
-            $id = $_POST["id"];
-        }
-        if(empty($_POST["nombre"])){
-            $avisoNombre= "No se ha introducido el nombre";
-        }else if(!ctype_alnum($_POST["nombre"])){
-            $avisoNombre= "El nombre solo acepta letras y numeros";
-        }else{
-            $nombre = $_POST["nombre"];
-        }
-        if(empty($_POST["descripcion"])) {
-            $avisoDescripcion = "No se ha introducido la descripcion";
-        } elseif(!preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["descripcion"])) {
-            $avisoDescripcion = "La descripcion solo puede contener letras, numeros y espacios";
         } else {
-            $descripcion = $_POST["descripcion"];
+            header("Location:../Vista/menu.php");
         }
-        if(empty($_POST["precio"])){
-            $avisoPrecio= "No se ha introducido el precio";
-        }else if($_POST["precio"] < 0){
-            $avisoPrecio= "El precio debe ser positivo";
-        }
-        else{
-            $precio = $_POST["precio"];
-        }
+    } elseif ($boton == "actualizar") {
+        $result = $controlProducto->actualizarProducto($_POST["id"], $_POST["nombre"], $_POST["descripcion"], $_POST["precio"]);
 
-        if(!empty($avisoID)|| !empty($avisoNombre) || !empty($avisoDescripcion) || !empty($avisoPrecio)){
+        if ($result !== true) {
+            $avisoID = $result['id'] ?? '';
+            $avisoNombre = $result['nombre'] ?? '';
+            $avisoDescripcion = $result['descripcion'] ?? '';
+            $avisoPrecio = $result['precio'] ?? '';
             header("Location:../Vista/ActualizarProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
-            exit();
+        } else {
+            // Aquí debe ir el redireccionamiento si la actualización fue exitosa
+            header("Location:../Vista/menu.php");
         }
-        $productoDAO->editarProducto($id, $nombre, $descripcion, $precio);
-
-        header("Location:../Vista/menu.php");
-        exit();
     }
-
 }
+
 ?>
 
