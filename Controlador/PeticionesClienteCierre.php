@@ -1,7 +1,7 @@
 <?php
-require_once "../Modelo/DAOCliente.php";
+require_once "../Controlador/ControlRegistro.php";
 
-$cliente = new DAOCliente();
+$cliente = new ControlRegistro();
 
 if($_POST["cerrar"]){
     $cliente->cerrarSesion();

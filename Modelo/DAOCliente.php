@@ -49,9 +49,5 @@ class DAOCliente {
         return false;
     }
 
-    public function cerrarSesion(){
-        session_unset();
-        session_destroy();
-    }
 }
 ?>

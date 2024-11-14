@@ -16,8 +16,8 @@
 <main class="mainAnadir">
 <?php
 require_once "../Modelo/DTOProducto.php";
-require_once "../Modelo/DAOProducto.php";
-$daoProducto = new DAOProducto();
+require_once "../Controlador/ControlProducto.php";
+$daoProducto = new ControlProducto();
 $producto = $daoProducto->buscarPorId($_REQUEST["idProducto"]);
 
 echo "<h2>Vista en detalle del producto</h2><br>";

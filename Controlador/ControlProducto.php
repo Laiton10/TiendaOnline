@@ -106,13 +106,33 @@ class ControlProducto {
         return true;
     }
 
-    
+    public function mostrarProductos() {
+        $productos = $this->productoDAO->mostrarProductos();
+        return $productos;
+    }
+
+    public function mostrarProductosNulos() {
+        $productosNulos = $this->productoDAO->mostrarProductosNulos();
+        return $productosNulos;
+    }
 
 
+    public function buscarPorNombre($nombre) {
+        if (empty($nombre)) {
+            return "El nombre no puede estar vacío";
+        }
+        $producto = $this->productoDAO->buscarPorNombre($nombre);
+        return $producto;
+    }
 
+    public function buscarPorId($id) {
+        if (empty($id)) {
+            return "El id no puede estar vacío";
+        }
 
-
-
+        $producto = $this->productoDAO->buscarPorId($id);
+        return $producto;
+    }
 }
 ?>
 

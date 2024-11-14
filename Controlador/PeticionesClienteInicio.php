@@ -1,14 +1,14 @@
 <?php
 require_once '../Modelo/DTOCliente.php';
-require_once '../Modelo/DAOCliente.php';
+require_once '../Controlador/ControlRegistro.php';
 
-$cliente = new DAOCliente();
+$cliente = new ControlRegistro();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $nickname = $_POST['nickname'];
     $password = $_POST['password'];
 
-    $clienteUsuario = $cliente->buscarNicknameContrasena($nickname, $password);
+    $clienteUsuario = $cliente->buscarCliente($nickname, $password);
 
     if($clienteUsuario == false){
         $aviso = "El usuario o la contrasena son incorrectos";

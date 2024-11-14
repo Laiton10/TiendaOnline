@@ -2,8 +2,8 @@
 require "../Controlador/PeticionesClienteInicio.php";
 $cliente= $_SESSION['cliente'];
 print($cliente->__mostrarInfo() . "<br><br>");
-require_once "../Modelo/DAOProducto.php";
-$producto= new DAOProducto();
+require_once "../Controlador/ControlProducto.php";
+$producto= new ControlProducto();
 ?>
 <!doctype html>
 <html lang="en">

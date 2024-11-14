@@ -43,7 +43,6 @@ echo "<p class='bienvenido'> Bienvenido " . $obj->getNombre() . "</p> <br>";
     </div>
 </div>
     <main>
-    <h2 class="h2Carrito"><a href="menu.php">Menu principal</a></h2>
     </main>
     </form>
     <footer>------------- Tienda Online -------------</footer>

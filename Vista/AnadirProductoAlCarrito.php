@@ -1,6 +1,6 @@
 <?php
-require_once "../Modelo/DAOProducto.php";
-$producto = new DAOProducto();
+require_once "../Controlador/ControlProducto.php";
+$producto = new ControlProducto();
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,7 +1,7 @@
 <?php
 
 require_once "../Modelo/DTOProducto.php";
-require_once "../Modelo/DAOProducto.php";
+require_once "../Controlador/ControlProducto.php";
 
 session_start();
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION["carrito"])){
 }
 
 function agregarProductoCarrito($id) {
-    $miDao = new DAOProducto();
+    $miDao = new ControlProducto();
     $producto = $miDao->buscarPorId($id);
     $carrito = $_SESSION["carrito"];
 
@@ -43,7 +43,7 @@ function vaciarCarrito(){
 }
 
 function eliminarProductoCarrito($nombre){
-    $miDao = new DAOProducto();
+    $miDao = new ControlProducto();
     $producto = $miDao->buscarPorNombre($nombre);
     $carrito = $_SESSION["carrito"];
 

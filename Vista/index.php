@@ -1,7 +1,7 @@
 <?php
 require_once "../Modelo/DTOCliente.php";
-require_once "../Modelo/DAOProducto.php";
-$miDao = new DAOProducto();
+require_once "../Controlador/ControlProducto.php";
+$miControl = new ControlProducto();
 session_start();
 ?>
 <!doctype html>
@@ -37,7 +37,7 @@ if(isset($_SESSION["cliente"])){
     echo "<th style='border: 1px solid black; padding: 8px;'>Precio</th>";
     echo "</tr>";
 
-    foreach($miDao->mostrarProductosNulos() as $producto){
+    foreach($miControl->mostrarProductosNulos() as $producto){
         echo "<tr style='border: 1px solid black;'>";
         echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["id"]."</td>";
         echo "<td style='border: 1px solid black; padding: 8px;'><a href='VistaProducto.php?idProducto=" . $producto['id'] . "'>" . $producto['nombre'] . "</a></td>";
@@ -72,7 +72,7 @@ if(isset($_SESSION["cliente"])){
     echo "<th style='border: 1px solid black; padding: 8px;'>Precio</th>";
     echo "</tr>";
 
-    foreach($miDao->mostrarProductosNulos() as $producto){
+    foreach($miControl->mostrarProductosNulos() as $producto){
         echo "<tr style='border: 1px solid black;'>";
         echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["id"]."</td>";
         echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["nombre"] . "</td>";
