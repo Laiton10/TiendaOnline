@@ -8,9 +8,15 @@ echo "<p class='bienvenido'> Bienvenido " . $obj->getNombre() . "</p> <br>";
     <html>
     <link rel="stylesheet" href="paginas.css">
     <body>
-    <header><h1>Menú</h1></header>
+    <header><h1>Tienda Online</h1></header>
+    <hr>
     <nav>
-        <nav class="navMenu">
+        <ul>
+            <li><a href='index.php'>Página Principal</a></li>
+            <li><a href='Carrito.php'>Carrito</a></li>
+        </ul>
+    </nav>
+        <div class="navMenu">
     <ul>
         <div class="container-menu">
             <div class="menu">
@@ -31,12 +37,10 @@ echo "<p class='bienvenido'> Bienvenido " . $obj->getNombre() . "</p> <br>";
             </div>
         </div>
     </ul>
-        </nav>
-    </nav>
-    <main>
-    <p><a href="index.php">Volver a la página principal</a></p><br>
+        </div>
 
-    <form action="../Controlador/PeticionesClienteCierre.php" method="post">
+    <main>
+        <form action="../Controlador/PeticionesClienteCierre.php" method="post">
         <button type="submit" value="cerrar" name="cerrar">Cerrar Sesión</button>
     </form>
     </main>

@@ -21,7 +21,7 @@ if(isset($_SESSION["cliente"])){
                   <hr>
                   <nav>
                      <ul>
-                        <li><a href='menu.php'>Menu</a></li>
+                        <li><a href='menu.php'>Menú</a></li>
                         <li><a href='Carrito.php'>Carrito</a></li>
                     </ul>
                   </nav>";

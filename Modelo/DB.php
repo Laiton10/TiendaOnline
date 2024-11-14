@@ -3,7 +3,7 @@
 class DB{
  private static $host= "localhost";
  private static $usuario= "root";
- private static $password= "123";
+ private static $password= "";
  private static $dbName= "mi_tienda";
 
  private static $conn= null;

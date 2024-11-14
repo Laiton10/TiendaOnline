@@ -23,18 +23,25 @@ echo "<p class='bienvenido'> Bienvenido " . $obj->getNombre() . "</p> <br>";
     <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
-    <header><h2>Carrito</h2></header>
+<header><h1>Tienda Online</h1></header>
+<hr>
+    <nav>
+        <ul>
+            <li><a href='index.php'>Página Principal</a></li>
+            <li><a href='menu.php'>Menú</a></li>
+        </ul>
+    </nav>
     <?php
         mostrarCarrito();
     ?>
-<nav>
+<div class="navCarrito">
     <form action="../Controlador/PeticionesCarrito.php" method="post">
     <div class="container-carrito">
     <p><a href="AnadirProductoAlCarrito.php">Añadir producto al carrito</a></p>
     <button type="submit" name="boton" id="boton" value="eliminar">Vaciar Carrito</button>
     <p><a href="EliminarProductoCarrito.php" >Eliminar producto del carrito</a></p>
     </div>
-</nav>
+</div>
     <main>
     <h2 class="h2Carrito"><a href="menu.php">Menu principal</a></h2>
     </main>
