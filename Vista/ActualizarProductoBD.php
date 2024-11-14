@@ -8,9 +8,18 @@ print($cliente->__mostrarInfo());
 <head>
     <meta charset="UTF-8">
     <title>Actualizar producto</title>
+    <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
-<header><h1>Actualizar producto</h1></header>
+<header><h1>Tienda Online</h1></header>
+<nav>
+    <ul>
+        <li><a href='menu.php'>Menú</a></li>
+    </ul>
+</nav>
+
+<main class="mainAnadir">
+    <h2>Actualizar producto</h2>
 <form action="../Controlador/PeticionesProducto.php" method="POST">
     <p>Pon el ID del producto que quieras actualizar</p>
     <label for="id">ID: <input id="id" name="id" placeholder="ID"></label>
@@ -31,9 +40,9 @@ print($cliente->__mostrarInfo());
     <br><br>
 
     <button type="submit" value="actualizar" name="accion">Enviar</button><br><br>
-
-    <p><a href="menu.php">Regresar al menú</a></p>
+</main>
 </form>
+<footer class="footerAnadir">------------- Tienda Online -------------</footer>
 </body>
 </html>
 

@@ -4,7 +4,27 @@ $cliente= $_SESSION['cliente'];
 print($cliente->__mostrarInfo() . "<br><br>");
 require_once "../Modelo/DAOProducto.php";
 $producto= new DAOProducto();
-
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+<header><h1>Tienda Online</h1></header>
+<br>
+<nav>
+    <ul>
+        <li><a href='menu.php'>Menú</a></li>
+    </ul>
+</nav>
+<br>
+<h2>Productos:</h2>
+<main class="mainAnadir">
+<?php
 echo "<table style='border-collapse: collapse; width: 100%;'>";
 echo "<tr style='border: 1px solid black; background-color: #f2f2f2;'>";
 echo "<th style='border: 1px solid black; padding: 8px;'>ID</th>";
@@ -25,9 +45,11 @@ foreach($producto->mostrarProductos() as $row) {
 }
 echo "</table>";
 
-echo "<p><a href='menu.php'>Regresar al menú</a></p>"
-
 ?>
+</main>
+<footer class="footerAnadir">------------- Tienda Online -------------</footer>
+</body>
+</html>
 
 
 

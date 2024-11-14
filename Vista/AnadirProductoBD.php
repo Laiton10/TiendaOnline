@@ -8,10 +8,20 @@ print($cliente->__mostrarInfo());
 <head>
     <meta charset="UTF-8">
     <title>Añadir producto</title>
+    <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
-<header><h1>Añadir producto</h1></header>
+<header><h1>Tienda Online</h1></header>
+
+    <nav class="navAnadir">
+        <ul>
+            <li><a href='menu.php'>Menú</a></li>
+        </ul>
+    </nav>
+
 <form action="../Controlador/PeticionesProducto.php" method="POST">
+    <main class="mainAnadirr">
+        <h2>Añadir producto</h2>
     <label for="id">ID: <input id="id" name="id" placeholder="ID"></label>
     <?php if(isset($_REQUEST["avisoID"])) echo "<p style='color:red;'>".$_REQUEST["avisoID"]."</p>"; ?>
     <br><br>
@@ -27,9 +37,10 @@ print($cliente->__mostrarInfo());
     <label for="precio">Precio: <input id="precio" name="precio" placeholder="Precio"></label>
     <?php if(isset($_REQUEST["avisoPrecio"])) echo "<p style='color:red;'>".$_REQUEST["avisoPrecio"]."</p>"; ?>
     <br><br>
+        <button type="submit" value="insert" name="accion">Enviar</button>
+    </main>
 
-    <button type="submit" value="insert" name="accion">Enviar</button><br><br>
-    <p><a href="menu.php">Regresar al menú</a></p>
+    <footer class="footerAnadir">------------- Tienda Online -------------</footer>
 </form>
 </body>
 </html>

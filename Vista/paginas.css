@@ -123,16 +123,15 @@ footer{
     color:  blue;
 }
 
-/* Contenedor del carrito con estilo de tarjeta */
 .container-carrito {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    width: 250px; /* Ajuste de ancho fijo para mantener un tamaño compacto */
+    width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    margin-left: 20px; /* Mantenemos el margen izquierdo */
+    margin-left: 20px;
 }
 
 .container-carrito a {
@@ -147,7 +146,6 @@ footer{
     font-size: 1em;
 }
 
-/* Estilo para el botón "Vaciar Carrito" */
 #boton {
     width: 100%;
     padding: 10px;
@@ -177,4 +175,29 @@ footer{
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+/* Añadir producto al carrito*/
+.navAnadir{
+   margin-bottom: 70px;
+}
+
+.footerAnadir{
+    margin-top: 50px;
+}
+
+.mainAnadir{
+    position: relative;
+    bottom: 80px;
+}
+
+.mainAnadirr{
+    position: relative;
+    bottom: 140px;
+}
+
+
+.mainEliminar{
+    position: relative;
+    bottom: 80px;
 }

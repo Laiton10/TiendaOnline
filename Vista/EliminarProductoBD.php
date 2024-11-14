@@ -8,9 +8,17 @@ print($cliente->__mostrarInfo());
 <head>
     <meta charset="UTF-8">
     <title>Eliminar producto</title>
+    <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
-<header><h1>Eliminar producto</h1></header>
+<header><h1>Tienda Online</h1></header>
+<nav>
+    <ul>
+        <li><a href='menu.php'>Menú</a></li>
+    </ul>
+</nav>
+<h2>Eliminar producto</h2>
+<main class="mainEliminar">
 <form action="../Controlador/PeticionesProducto.php" method="POST">
     <p>Elimina el producto por su ID: </p>
     <label for="id">ID: <input id="id" name="id" placeholder="ID"></label>
@@ -18,8 +26,8 @@ print($cliente->__mostrarInfo());
     <br><br>
 
     <button type="submit" value="delete" name="accion">Eliminar</button><br><br>
-
-    <p><a href="menu.php">Regresar al menú</a></p>
+</main>
+<footer class="footerAnadir">------------- Tienda Online -------------</footer>
 </form>
 </body>
 </html>

@@ -40,7 +40,7 @@ if(isset($_SESSION["cliente"])){
     foreach($miDao->mostrarProductosNulos() as $producto){
         echo "<tr style='border: 1px solid black;'>";
         echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["id"]."</td>";
-        echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["nombre"] . "</td>";
+        echo "<td style='border: 1px solid black; padding: 8px;'><a href='VistaProducto.php?idProducto=" . $producto['id'] . "'>" . $producto['nombre'] . "</a></td>";
         echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["descripcion"] . "</td>";
         echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["precio"] . "</td>";
         echo "</tr>";

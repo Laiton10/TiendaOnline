@@ -8,10 +8,19 @@ $producto = new DAOProducto();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
 <form action="../Controlador/PeticionesCarrito.php" method="post">
-    <header><h1>Añadir producto al carrito</h1></header><br><br>
+        <header><h1>Tienda Online</h1></header>
+    <nav class="navAnadir">
+        <ul>
+            <li><a href='menu.php'>Menú</a></li>
+            <li><a href='Carrito.php'>Carrito</a></li>
+        </ul>
+    </nav>
+    <h2>Añadir producto al carrito</h2>
+    <main>
     <?php
     echo "<table style='border-collapse: collapse; width: 100%;'>";
     echo "<tr style='border: 1px solid black; background-color: #f2f2f2;'>";
@@ -36,7 +45,8 @@ $producto = new DAOProducto();
     echo "</table><br><br>";
     ?>
 
-    <p><a href="Carrito.php">Volver al carrito</a></p>
+</main>
+        <footer>------------- Tienda Online -------------</footer>
 </form>
 </body>
 </html>

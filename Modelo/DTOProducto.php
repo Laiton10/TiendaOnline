@@ -48,7 +48,7 @@
     }
 
      public function mostrarInfo() {
-         return "id: " . $this->id . ", nombre: " . $this->nombre . ", Descripcion: " . $this->descripcion . ", Precio: " . $this->precio . "ID cliente:" . $this->id_cliente;
+         return  "nombre: " . $this->nombre . ", Descripcion: " . $this->descripcion . ", Precio: " . $this->precio;
      }
 
  }
