@@ -37,7 +37,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $avisoPrecio = $result['precio'] ?? '';
             header("Location:../Vista/ActualizarProductoBD.php?avisoID=$avisoID&avisoNombre=$avisoNombre&avisoDescripcion=$avisoDescripcion&avisoPrecio=$avisoPrecio");
         } else {
-            // Aquí debe ir el redireccionamiento si la actualización fue exitosa
             header("Location:../Vista/menu.php");
         }
     }

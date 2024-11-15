@@ -31,7 +31,6 @@ if(isset($_SESSION["cliente"])){
 
     echo "<table style='border-collapse: collapse; width: 100%;'>";
     echo "<tr style='border: 1px solid black; background-color: #f2f2f2;'>";
-    echo "<th style='border: 1px solid black; padding: 8px;'>ID</th>";
     echo "<th style='border: 1px solid black; padding: 8px;'>Nombre</th>";
     echo "<th style='border: 1px solid black; padding: 8px;'>Descripción</th>";
     echo "<th style='border: 1px solid black; padding: 8px;'>Precio</th>";
@@ -39,7 +38,6 @@ if(isset($_SESSION["cliente"])){
 
     foreach($miControl->mostrarProductosNulos() as $producto){
         echo "<tr style='border: 1px solid black;'>";
-        echo "<td style='border: 1px solid black; padding: 8px;'>". $producto["id"]."</td>";
         echo "<td style='border: 1px solid black; padding: 8px;'><a href='VistaProducto.php?idProducto=" . $producto['id'] . "'>" . $producto['nombre'] . "</a></td>";
         echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["descripcion"] . "</td>";
         echo "<td style='border: 1px solid black; padding: 8px;'>" . $producto["precio"] . "</td>";
