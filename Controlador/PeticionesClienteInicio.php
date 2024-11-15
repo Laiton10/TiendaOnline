@@ -10,11 +10,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $clienteUsuario = $cliente->buscarCliente($nickname, $password);
 
-    if($clienteUsuario == false){
-        $aviso = "El usuario o la contrasena son incorrectos";
-        header("location:../Vista/iniciarSesion.php?aviso=$aviso");
+    if(is_string($clienteUsuario)){
+        $error = $clienteUsuario;
+        header("location:../Vista/iniciarSesion.php?aviso=$error");
+
     }else{
-        $_SESSION["cliente"] = $clienteUsuario;
         header("location:../Vista/index.php");
     }
 

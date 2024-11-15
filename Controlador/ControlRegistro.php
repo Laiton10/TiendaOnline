@@ -1,7 +1,7 @@
 <?php
 require_once '../Modelo/DAOCliente.php';
 require_once '../Modelo/DTOCliente.php';
-
+session_start();
 class ControlRegistro {
     private $clienteDAO;
 
@@ -57,7 +57,16 @@ class ControlRegistro {
     }
 
     public function buscarCliente($nickname, $password) {
-        return $this->clienteDAO->buscarNicknameContrasena($nickname, $password);
+         $inicio = $this->clienteDAO->buscarNicknameContrasena($nickname, $password);
+         if(!$inicio){
+             $error = "El nickname y contrasena no coinciden";
+             return $error;
+         }else{
+             if($password == $inicio->getPassword()){
+                 $_SESSION["cliente"] = $inicio;
+             }
+         }
+         return true;
     }
 
 }

@@ -32,7 +32,6 @@ class DAOCliente {
         $result = $stmt->fetch();
 
         if ($result) {
-            if ($password === $result['password']) {
                 return new DTOCliente(
                     $result['id'],
                     $result['nombre'],
@@ -42,11 +41,9 @@ class DAOCliente {
                     $result['telefono'],
                     $result['domicilio']
                 );
-            }else{
-                return false;
-            }
+        }else{
+            return false;
         }
-        return false;
     }
 
 }
